@@ -1,72 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!--ส่วนนี้จะไม่แสดงออกหน้าเว็บ-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel ="stylesheet" href ="styles.css">
 </head>
 <body>
-    <!--ส่วนทีแสดงออกหน้าเว็บ -->
-    Hello world! <br>
-    สวัดดี ชาวโลก
-    <h1>สวัสดี</h1>
-    <h2>web</h2>
-    <h3>662165</h3>
-    <h4>xxx</h4>
-    <h5>xxx</h5>
-    <h6>xxx</h6>
-    <p>Paragrap</p>
-    <p>Paragrap</p>
-    <p>Paragrap</p>
 
-    <div>Paragrap</div>
-    <div>Paragrap</div>
-    <div>Paragrap</div>
+    <div class="container">
+        <div class = "header">
+        Register from
+    </div>
+    <div class="flex form-input">
+        <div class ="header-form">ชื่อ</div>
+        <input class = "form" name="firstname" type="text"> 
+    </div>
+    <div class="flex form-input">
+        <div class ="header-form">นามสกุล</div>
+        <input  class = "form" name="lastname" type="text">
+    </div>
+    <div class="flex form-input">
+        <div class ="header-form">อายุ</div>
+        <input  class = "form" name="age" type="number" min="0" max="150">
+    </div>
+    
+        <div class="flex gender from-input">
+            <div class="header-form">เพศ</div> 
+            <div class = "flex">
+                <div>
+                    <input name= "gender"type="radio" value="ชาย">ชาย
+                </div>
+                <div>
+                    <input name= "gender"type="radio" value="หญิง">หญิง
+                </div>
+                <div>
+                    <input name= "gender" type="radio" value="อื่นๆ">อื่นๆ
+                </div>
+        </div>
+    </div>
 
+    <div class="form-input">
+        งานอดิเรก
+        <div>
+            <input name ="interest" type="checkbox" value="อ่านหนังสือ">อ่านหนังสือ
+        </div>
+        <div>
+            <input name ="interest" type="checkbox" value="ดูหนัง">ดูหนัง
+        </div>
+        <div>
+            <input name ="interest" type="checkbox" value="ฟังเพลง">ฟังเพลง
+        </div>
+    </div>
 
+    <div class="form-input">
+        คำอธิบายตัวยเอง
+        <textarea name="description"></textarea>
+    </div>
+    <div id="message" class = "message">
+        Hello
+    </div>
+    <div class ="center">
+        <button onclick ="submitData()" class="button">ส่งข้อมูล</button>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+<script src="index.js"></script>
 
-    <ul>
-        <li>Coffee</li>
-        <li>Tea</li>
-        <li>Milk</li>
-      </ul>
-      <ol>
-        <li>Coffee</li>
-        <li>Tea</li>
-        <li>Milk</li>
-      </ol>
-      <table>
-            <thead>
-                <tr>
-          <th>Person 1</th>
-          <th>Person 2</th>
-          <th>Person 3</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-          <td>Emil</td>
-          <td>Tobias</td>
-          <td>Linus</td>
-            </tr>
-            <tr>
-          <td>16</td>
-          <td>14</td>
-          <td>10</td>
-            </tr>
-        </tbody>
-      </table>
-      <a href="https://www.w3schools.com/" target="_blank">Visit w3schools.com</a>
-      <img 
-            src="https://fastly.picsum.photos/id/237/200/300.jpg?hmac=TmmQSbShHz9CdQm0NkEjx1Dyh_Y984R9LpNrpvH2D_U"
-            width="100px"
-            height="100px"
-            >
-
-    <section>
-                <h1>WWF</h1>
-                <p>The World Wide Fund for Nature (WWF) is an international organization working on issues regarding the conservation, research and restoration of the environment, formerly named the World Wildlife Fund. WWF was founded in 1961.</p>
-    </section>
 </body>
 </html>
