@@ -51,14 +51,14 @@ const submitData = async () => {
     }
     console.log('submitData',userData)
 
-    const errors = validateData(userData)
-    if(errors.length > 0) {
+    //const errors = validateData(userData)
+    //if(errors.length > 0) {
         //มี error
-        throw{
-            message: 'กรุณากรอกข้อมูลให้ครบถ้วน',
-            errors: errors
-        }
-    }
+        //throw{
+          //  message: 'กรุณากรอกข้อมูลให้ครบถ้วน',
+           // errors: errors
+       // }
+    //}
     
         const response = await axios.post('http://localhost:8000/users', userData)
         console.log('response',response.data)
