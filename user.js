@@ -4,9 +4,11 @@ const BASE_URL = 'http://localhost:8000'
 
 window.onload = async() => { 
     await loadData();
+
+    
 }
 
-const loadData =async() => {
+const loadData = async() => {
     console.log('loaded');
     //1. load user ทั้งหมดออกมาจาก api
     const response = await axios.get(`${BASE_URL}/users`)
@@ -19,24 +21,27 @@ const loadData =async() => {
         let user = response.data[i];
         htmlData += `<div>
         ${user.id} ${user.firstname} ${user.lastname}
-        <a href='index.html?id=${user.id}'><button>Edit</button></a>
+        <a href ='index.html?id=${user.id}'><button>Edit</button></a>
         <button class ='delete' data-id = '${user.id}')">Delete</button>
         </div>`
     }
     htmlData += '</div>';
     UserDOM.innerHTML = htmlData;
 
-    const deleteDOM = document.getElementsByClassName('delete');
-    for (let i = 0; i < deleteDOM.length; i++){
-        deleteDOM[i].addEventListener('click', async (event) => {
+    //3. สร้าง event สำหรับลบ user
+    const deleteDOMs = document.getElementsByClassName('delete');
+    for (let i = 0; i < deleteDOMs.length; i++){
+        deleteDOMs[i].addEventListener('click', async function(){
             const id = event.target.dataset.id;
             try{
                 await axios.delete(`${BASE_URL}/users/${id}`);
-                loadData(); //recursive function = เรียกใช้ฟังก์ชันตัวเอง    
+                loadData();//recursive function = เรียกใช้ฟังก์ชันตัวเอง
             }catch {
-                console.error('error', error)
+                console.error('error',error);
             }
+            
         })
     }
+    
 
 }

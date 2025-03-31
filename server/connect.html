@@ -9,12 +9,11 @@
     <script>
         fetch('http://localhost:8000/users')
         .then((response) => {
-            return response.json()
+            return response.json();
         })
-        .then((reponseData) =>{
-            console.log('reponseData',reponseData)
-        })
-
+        .then((responseData) => {
+            console.log('responseData', responseData);
+        });
     </script>
 </body>
 </html>

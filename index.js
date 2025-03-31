@@ -31,7 +31,7 @@ window.onload = async() => {
                     
                 }
             }
-            
+
             for (let i = 0; i < interestDOMs.length; i++) {
                 if(user.interests.includes(interestDOMs[i].value)) {
                     interestDOMs[i].checked = true

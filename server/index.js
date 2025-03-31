@@ -1,9 +1,9 @@
-
 const express = require('express');
 const bodyParser = require('body-parser');
 const mysql = require('mysql2/promise');
 const cors = require('cors');
 const app = express();
+
 
 app.use(bodyParser.json());
 app.use(cors());
@@ -29,6 +29,19 @@ const initmysql = async () => {
     })
 }
 
+
+/*app.get('/testdb-new', async (req, res) => {
+
+    try {
+        const results = await conn.query('SELECT * FROM users')
+        res.json(results[0]) // ส่งข้อมูลกลับไปที่ results ในรูปแบบ json
+    } catch (error) { 
+        console.log('Erro fetching users:', error.message)
+        res.status(500).json({error:'Error fetching users'})
+        
+    }
+    
+})*/
 const validateData = (userData) => {
     let errors = []
     if(!userData.firstName) {
@@ -52,20 +65,6 @@ const validateData = (userData) => {
     return errors
 }
 
-
-/*app.get('/testdb-new', async (req, res) => {
-
-    try {
-        const results = await conn.query('SELECT * FROM users')
-        res.json(results[0]) // ส่งข้อมูลกลับไปที่ results ในรูปแบบ json
-    } catch (error) { 
-        console.log('Erro fetching users:', error.message)
-        res.status(500).json({error:'Error fetching users'})
-        
-    }
-    
-})*/
-
 // path = GET /users
 app.get('/users', async (req, res) => {
     const results = await conn.query('SELECT * FROM users')
@@ -75,12 +74,11 @@ app.get('/users', async (req, res) => {
 // path = POST /user
 app.post('/users', async (req, res) => {
     try{
-
         let user = req.body;
-        const errors = validateData(user);
+        const errors = validateData(user)
         if(errors.length > 0) {
             throw {
-                message: 'กรุณากรอกข้อมูลให้ครบถ้วน',
+                message : 'กรุญากรอกข้อมูลให้ครบถ้วน',
                 errors: errors
             }
         }
@@ -90,14 +88,13 @@ app.post('/users', async (req, res) => {
             message: 'User created',
             data: results[0]
         })
-    }catch(error){
-         // ถ้าเกิด error ให้ส่งข้อมูลกลับไปที่ client
+    }catch(error){ // ถ้าเกิด error ให้ส่งข้อมูลกลับไปที่ client
         const errorMessage = error.message || 'something went wrong'
         const errors = error.errors || []
-        console.error('errorMessage',error.message)
+        console.error('errorMessge',error.message)
         res.status(500).json({
             message: errorMessage,
-            errors: errors
+            errors : errors
         }) // ส่งข้อมูลกลับไปที่ results ในรูปแบบ json
     }
 
@@ -165,6 +162,5 @@ app.delete('/users/:id', async(req, res) => {
 
 app.listen(port, async(req, res) => {
     await initmysql();
-    console.log('Server is running on port' + port);
+    console.log('Server is running on port ' + port);
 });
-
