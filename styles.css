@@ -1,0 +1,162 @@
+@font-face {
+    font-family: 'kanit';
+    src: url('./Kanit/Kanit-Regular.ttf');
+}
+
+body {
+    font-family: 'kanit', sans-serif;
+    background-image: url('images/pink.jpg'); /* เพิ่มพื้นหลังเป็นภาพ pink.jpg */
+    background-size: cover; /* ขยายพื้นหลังให้ครอบคลุมหน้าจอ */
+    background-position: center center; /* จัดตำแหน่งให้พื้นหลังอยู่กลาง */
+    background-repeat: no-repeat; /* ห้ามซ้ำพื้นหลัง */
+    color: #333; /* ใช้สีดำเข้มเพื่อความอ่านง่าย */
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 640px;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.9); /* พื้นหลังโปร่งใส */
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(100, 100, 100, 0.3); /* ขอบเงาแบบนุ่มนวล */
+    transition: transform 0.3s ease-in-out;
+}
+
+.container:hover {
+    transform: scale(1.05);
+}
+
+.header {
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ff66b2; /* ชมพูพาสเทล */
+    text-shadow: 0 0 10px rgba(255, 182, 193, 0.5), 0 0 20px rgba(255, 105, 180, 0.4);
+}
+
+.flex {
+    display: flex;
+}
+
+.form-input {
+    margin-bottom: 15px;
+}
+
+input.form, textarea {
+    width: 100%;
+    background: #ffffff;
+    color: #666666;
+    padding: 10px;
+    border: 2px solid #ff99cc; /* ขอบชมพูพาสเทล */
+    border-radius: 10px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input.form::placeholder, textarea::placeholder {
+    color: #b0a9b1; /* สีเทานุ่ม ๆ สำหรับ placeholder */
+}
+
+input.form:focus, textarea:focus {
+    border-color: #ff66b2; /* เน้นขอบเมื่อมีการกรอกข้อมูล */
+    box-shadow: 0 0 15px rgba(255, 182, 193, 0.5);
+}
+
+.center {
+    text-align: center;
+}
+
+/* ปุ่ม */
+.button {
+    display: inline-block;
+    width: 100%;
+    background-color: #ff66b2; /* สีชมพูพาสเทล */
+    color: white;
+    padding: 15px 0;
+    text-decoration: none;
+    border-radius: 15px;
+    font-size: 18px;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.3s;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(255, 105, 180, 0.4);
+}
+
+.button:hover {
+    background-color: #ff3399;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 105, 180, 0.6);
+}
+
+.message {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #fffbf9;
+    color: #ff66b2;
+    border-radius: 5px;
+    border: 1px solid #ff99cc;
+    display: none;
+}
+
+.message.success {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
+    display: block;
+}
+
+.message.danger {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+    display: block;
+}
+
+/* ปรับสีให้ radio & checkbox */
+input[type="radio"], input[type="checkbox"] {
+    accent-color: #ff66b2; /* สีพาสเทลชมพู */
+}
+
+input[type="radio"] + label,
+input[type="checkbox"] + label {
+    color: #666666;
+}
+
+/* เพิ่มสไตล์ให้ label */
+label {
+    color: #ff66b2; /* สีชมพูพาสเทล */
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .flex {
+        flex-direction: column;
+    }
+    .header {
+        font-size: 28px;
+    }
+    .button {
+        width: 100%;
+    }
+}
+
+/* สไตล์สำหรับลิงก์ */
+.button-link {
+    display: inline-block;
+    background-color: #ff66b2;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 15px;
+    font-size: 18px;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.button-link:hover {
+    background-color: #ff3399;
+    transform: scale(1.05);
+}

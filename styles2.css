@@ -1,0 +1,95 @@
+@font-face {
+    font-family: 'kanit';
+    src: url('./Kanit/Kanit-Regular.ttf');
+}
+
+body {
+    font-family: 'kanit', sans-serif;
+    background: linear-gradient(45deg, #ff99cc, #f8c6d5); /* gradient ชมพูอ่อนและชมพูพาสเทล */
+    background-size: 400% 400%; /* ขยาย gradient */
+    animation: gradientAnimation 10s ease infinite; /* การเคลื่อนไหวของ gradient */
+    color: #6c4f7d; /* สีชมพูม่วงอ่อน */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* การเคลื่อนไหวของ gradient */
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* กรอบเนื้อหา */
+.container {
+    background: rgba(255, 255, 255, 0.9); /* พื้นหลังขาวอ่อน */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(200, 100, 180, 0.4); /* ขอบเงาสีชมพูอ่อน */
+    text-align: center;
+    width: 90%;
+    max-width: 600px;
+}
+
+/* หัวข้อ */
+h1 {
+    color: #ff66b2; /* ชมพูพาสเทล */
+    text-shadow: 0 0 10px rgba(255, 182, 193, 0.5); /* เงาหัวข้อชมพู */
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+/* ปุ่มลิงก์ */
+.button-link {
+    display: inline-block;
+    background-color: #ff66b2; /* สีชมพูพาสเทล */
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 18px;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-bottom: 20px;
+}
+
+.button-link:hover {
+    background-color: #ff3399; /* สีชมพูเข้มขึ้นเมื่อ hover */
+    transform: scale(1.05);
+}
+
+/* กรอบแสดงผู้ใช้ */
+#user {
+    background: rgba(255, 240, 245, 0.9); /* พื้นหลังชมพูอ่อน */
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(200, 100, 180, 0.4); /* ขอบเงาสีชมพูอ่อน */
+    margin-top: 20px;
+    width: 100%;
+    color: #6c4f7d; /* สีชมพูม่วงอ่อน */
+}
+
+/* เพิ่มลวดลายในพื้นหลัง */
+body::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('https://www.transparenttextures.com/patterns/diagonal-stripes.png'); /* ใช้ลวดลายจากเว็บไซต์ */
+    opacity: 0.1; /* ความเข้มของลวดลาย */
+    pointer-events: none; /* ให้สามารถคลิกผ่านลวดลายได้ */
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+}
