@@ -154,4 +154,8 @@ const submitData = async () => {
         messageDoM.innerHTML = htmlData
         messageDoM.className = 'message danger'    
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 5eccc131abf92a1127fa2e943e6ae0a7b152deba
